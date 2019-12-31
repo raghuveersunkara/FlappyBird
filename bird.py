@@ -40,5 +40,10 @@ class Bird():
         self.y = self.y + displacement
 
         if displacement < 0 or self.y < self.height + 50:
-            pass
+            self.tilt = max(self.tilt, self.MAX_ROTATION)
+        else:
+            if self.tilt < -90:
+                self.tilt -= self.ROT_VEL
+
+    def draw(self, win):
         
