@@ -46,4 +46,4 @@ class Bird():
                 self.tilt -= self.ROT_VEL
 
     def draw(self, win):
-        
+        pass
