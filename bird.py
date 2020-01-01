@@ -1,6 +1,3 @@
-import os
-import time
-import random
 import game_graphics
 
 
@@ -46,4 +43,23 @@ class Bird():
                 self.tilt -= self.ROT_VEL
 
     def draw(self, win):
-        pass
+        self.img_count += 1
+        
+        if self.img_count < self.ANIMATION_TIME:
+            self.img = self.IMGS[0]
+        elif self.img_count < self.ANIMATION_TIME * 2:
+            self.img = self.IMGS[1]
+        elif self.img_count < self.ANIMATION_TIME * 3:
+            self.img = self.IMGS[2]
+        elif self.img_count < self.ANIMATION_TIME * 4:
+            self.img = self.IMGS[1]
+        elif self.img_count == self.ANIMATION_TIME * 4 + 1:
+            self.img = self.IMGS[0]
+            self.img_count = 0
+        
+        if self.tilt <= -80:
+            self.img = self.IMGS[1]
+            self.img_count = self.ANIMATION_TIME * 2
+            
+        
+
