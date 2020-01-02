@@ -1,5 +1,6 @@
 import pygame
 import neat
+import os
 
 WIN_WIDTH = 600
 WIN_HEIGHT = 800
