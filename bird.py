@@ -1,9 +1,9 @@
-import game_graphics
+from game_graphics import graphics_setup
 import pygame
 
 
 class Bird():
-    IMGS = game_graphics.BIRD_IMGS
+    IMGS = graphics_setup.bird_imgs
     MAX_ROTATION = 25
     ROT_VEL = 20
     ANIMATION_TIME = 5
@@ -67,4 +67,6 @@ class Bird():
 
         win.blit(rotated_image, new_rectangle.topleft)
 
-        
+    def get_mask(self):
+        return pygame.mask.from_surface(self.img)
+
