@@ -1,4 +1,5 @@
 import game_graphics
+import pygame
 
 
 class Bird():
@@ -60,6 +61,10 @@ class Bird():
         if self.tilt <= -80:
             self.img = self.IMGS[1]
             self.img_count = self.ANIMATION_TIME * 2
-            
         
+        rotated_image = pygame.transform.rotate(self.img, self.tilt)
+        new_rectangle = rotated_image.get_rect(center=self.img.get_rect(topLeft=(self.x, self.y)).center)
 
+        win.blit(rotated_image, new_rectangle.topleft)
+
+        
