@@ -6,7 +6,7 @@ class Bird():
     IMGS = graphics_setup.bird_imgs
     MAX_ROTATION = 25
     ROT_VEL = 20
-    ANIMATION_TIME = 5
+    ANIMATION_TIME = 1
 
     def __init__(self, x, y):
         super().__init__()
@@ -63,7 +63,7 @@ class Bird():
             self.img_count = self.ANIMATION_TIME * 2
         
         rotated_image = pygame.transform.rotate(self.img, self.tilt)
-        new_rectangle = rotated_image.get_rect(center=self.img.get_rect(topLeft=(self.x, self.y)).center)
+        new_rectangle = rotated_image.get_rect(center=self.img.get_rect(topleft=(self.x, self.y)).center)
 
         win.blit(rotated_image, new_rectangle.topleft)
 
